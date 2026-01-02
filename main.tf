@@ -34,7 +34,7 @@ resource "aws_route_table_association" "MyAssociation" {
 
 
 resource "aws_internet_gateway" "MyIG" {
-    vpc_id = aws_vpc.Myvpc.id
+    vpc_id = data.aws_vpc.Myvpc.id
     tags = {
         Name = "My_Internet_Gateway"
     }
@@ -44,7 +44,7 @@ resource "aws_internet_gateway" "MyIG" {
 
 
 resource "aws_security_group" "Mysecurity" {
-    vpc_id = aws_vpc.Myvpc.id
+    vpc_id = data.aws_vpc.Myvpc.id
     name = "My_Security_Group"
     description = "Creating Security Group"
     tags = {
@@ -67,7 +67,7 @@ data "aws_ami" "AMI" {
       name = "name"
       values = ["ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-20251212"]
     }
-    owners = "099720109477"
+    owners = 099720109477
 }
 
 
