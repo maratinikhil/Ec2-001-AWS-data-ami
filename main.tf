@@ -15,7 +15,7 @@ resource "aws_subnet" "Mysubnet" {
 
 
 resource "aws_route_table" "Myroute" {
-    vpc_id = aws_vpc.Myvpc.id
+    vpc_id = data.aws_vpc.Myvpc.id
     tags = {
         Name = "Route_Table"
     }
