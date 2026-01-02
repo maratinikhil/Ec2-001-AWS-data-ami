@@ -5,7 +5,7 @@ data "aws_vpc" "Myvpc" {
 
 resource "aws_subnet" "Mysubnet" {
     count = local.value
-    vpc_id = aws_vpc.Myvpc.id
+    vpc_id = data.aws_vpc.Myvpc.id
     cidr_block = var.My_Detailed_Network_Info.subnet_info[0].subnet_cidr[count.index]
     tags = {
         Name = var.My_Detailed_Network_Info.subnet_info[0].subnet_names[count.index]
