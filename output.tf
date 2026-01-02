@@ -1,5 +1,5 @@
 output "vpc_id" {
-value = aws_vpc.Myvpc.id
+value = data.aws_vpc.Myvpc.id
 
 }
 
