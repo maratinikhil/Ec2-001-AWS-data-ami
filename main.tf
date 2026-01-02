@@ -1,5 +1,5 @@
 data "aws_vpc" "Myvpc" {
-    default = true
+    default = false
 }
 
 
