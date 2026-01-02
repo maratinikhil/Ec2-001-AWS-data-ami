@@ -1,5 +1,5 @@
 data "aws_vpc" "Myvpc" {
-    id = var.My_Detailed_Network_Info.vpc_cidr
+    id = data.aws_vpc.Myvpc.id
 }
 
 
