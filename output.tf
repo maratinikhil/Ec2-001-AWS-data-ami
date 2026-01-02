@@ -28,3 +28,7 @@ output "EC2-Instance" {
 output "Public_Ip" {
     value = aws_instance.My_EC2_instance.public_ip
 }
+
+output "aws_ami_image" {
+    value = aws_instance.My_EC2_instance.ami
+}
