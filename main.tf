@@ -1,5 +1,5 @@
 data "aws_vpc" "Myvpc" {
-    id = data.aws_vpc.Myvpc.id
+    default = true
 }
 
 
