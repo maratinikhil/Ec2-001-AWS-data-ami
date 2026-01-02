@@ -1,7 +1,6 @@
 variable "My_Detailed_Network_Info" {
     description = "Ec2 instance"
     type = object({
-      vpc_cidr = string
       vpc_names = string
       subnet_info = list(object({
         subnet_cidr = list(string)
