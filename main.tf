@@ -1,11 +1,11 @@
-data "aws_vpc" "Myvpc" {
-    default = false
+resource "aws_vpc" "MyVPC" {
+    cidr_block = var.My_Detailed_Network_Info.vpc_cidr
 }
 
 
 resource "aws_subnet" "Mysubnet" {
     count = local.value
-    vpc_id = data.aws_vpc.Myvpc.id
+    vpc_id = var.My_Detailed_Network_Info.vpc_cidr
     cidr_block = var.My_Detailed_Network_Info.subnet_info[0].subnet_cidr[count.index]
     tags = {
         Name = var.My_Detailed_Network_Info.subnet_info[0].subnet_names[count.index]
@@ -15,7 +15,7 @@ resource "aws_subnet" "Mysubnet" {
 
 
 resource "aws_route_table" "Myroute" {
-    vpc_id = data.aws_vpc.Myvpc.id
+    vpc_id = var.My_Detailed_Network_Info.vpc_cidr
     tags = {
         Name = "Route_Table"
     }
@@ -34,7 +34,7 @@ resource "aws_route_table_association" "MyAssociation" {
 
 
 resource "aws_internet_gateway" "MyIG" {
-    vpc_id = data.aws_vpc.Myvpc.id
+    vpc_id = var.My_Detailed_Network_Info.vpc_cidr
     tags = {
         Name = "My_Internet_Gateway"
     }
@@ -44,7 +44,7 @@ resource "aws_internet_gateway" "MyIG" {
 
 
 resource "aws_security_group" "Mysecurity" {
-    vpc_id = data.aws_vpc.Myvpc.id
+    vpc_id = var.My_Detailed_Network_Info.vpc_cidr
     name = "My_Security_Group"
     description = "Creating Security Group"
     tags = {
